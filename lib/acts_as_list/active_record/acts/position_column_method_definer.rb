@@ -21,11 +21,11 @@ module ActiveRecord::Acts::List::PositionColumnMethodDefiner #:nodoc:
       end
 
       define_singleton_method :decrement_all do
-        update_all_with_touch "#{quoted_position_column} = (#{quoted_position_column_with_table_name} - 1)"
+        update_all "#{quoted_position_column} = (#{quoted_position_column_with_table_name} - 1)"
       end
 
       define_singleton_method :increment_all do
-        update_all_with_touch "#{quoted_position_column} = (#{quoted_position_column_with_table_name} + 1)"
+        update_all "#{quoted_position_column} = (#{quoted_position_column_with_table_name} + 1)"
       end
 
       define_singleton_method :update_all_with_touch do |updates|
